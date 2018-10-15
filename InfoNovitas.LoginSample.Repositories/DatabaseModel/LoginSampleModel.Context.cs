@@ -79,38 +79,6 @@ public partial class IdentityExDbEntities : DbContext
     }
 
 
-    public virtual int Author_Save(Nullable<int> id, string firstName, string lastName, Nullable<System.DateTimeOffset> lastModified, Nullable<int> userLastModified)
-    {
-
-        var idParameter = id.HasValue ?
-            new ObjectParameter("Id", id) :
-            new ObjectParameter("Id", typeof(int));
-
-
-        var firstNameParameter = firstName != null ?
-            new ObjectParameter("FirstName", firstName) :
-            new ObjectParameter("FirstName", typeof(string));
-
-
-        var lastNameParameter = lastName != null ?
-            new ObjectParameter("LastName", lastName) :
-            new ObjectParameter("LastName", typeof(string));
-
-
-        var lastModifiedParameter = lastModified.HasValue ?
-            new ObjectParameter("LastModified", lastModified) :
-            new ObjectParameter("LastModified", typeof(System.DateTimeOffset));
-
-
-        var userLastModifiedParameter = userLastModified.HasValue ?
-            new ObjectParameter("UserLastModified", userLastModified) :
-            new ObjectParameter("UserLastModified", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Author_Save", idParameter, firstNameParameter, lastNameParameter, lastModifiedParameter, userLastModifiedParameter);
-    }
-
-
     public virtual ObjectResult<Nullable<int>> Author_Insert(string firstName, string lastName, Nullable<System.DateTimeOffset> dateCreated, Nullable<int> userCreated, Nullable<System.DateTime> birthDate, string birthPlace, Nullable<System.DateTime> deathDate, string deathPlace, string description, string url)
     {
 
@@ -165,6 +133,68 @@ public partial class IdentityExDbEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Author_Insert", firstNameParameter, lastNameParameter, dateCreatedParameter, userCreatedParameter, birthDateParameter, birthPlaceParameter, deathDateParameter, deathPlaceParameter, descriptionParameter, urlParameter);
+    }
+
+
+    public virtual int Author_Save(Nullable<int> id, string firstName, string lastName, Nullable<System.DateTime> birthDate, string birthPlace, Nullable<System.DateTime> deathDate, string deathPlace, string description, string url, Nullable<System.DateTimeOffset> lastModified, Nullable<int> userLastModified)
+    {
+
+        var idParameter = id.HasValue ?
+            new ObjectParameter("Id", id) :
+            new ObjectParameter("Id", typeof(int));
+
+
+        var firstNameParameter = firstName != null ?
+            new ObjectParameter("FirstName", firstName) :
+            new ObjectParameter("FirstName", typeof(string));
+
+
+        var lastNameParameter = lastName != null ?
+            new ObjectParameter("LastName", lastName) :
+            new ObjectParameter("LastName", typeof(string));
+
+
+        var birthDateParameter = birthDate.HasValue ?
+            new ObjectParameter("BirthDate", birthDate) :
+            new ObjectParameter("BirthDate", typeof(System.DateTime));
+
+
+        var birthPlaceParameter = birthPlace != null ?
+            new ObjectParameter("BirthPlace", birthPlace) :
+            new ObjectParameter("BirthPlace", typeof(string));
+
+
+        var deathDateParameter = deathDate.HasValue ?
+            new ObjectParameter("DeathDate", deathDate) :
+            new ObjectParameter("DeathDate", typeof(System.DateTime));
+
+
+        var deathPlaceParameter = deathPlace != null ?
+            new ObjectParameter("DeathPlace", deathPlace) :
+            new ObjectParameter("DeathPlace", typeof(string));
+
+
+        var descriptionParameter = description != null ?
+            new ObjectParameter("Description", description) :
+            new ObjectParameter("Description", typeof(string));
+
+
+        var urlParameter = url != null ?
+            new ObjectParameter("Url", url) :
+            new ObjectParameter("Url", typeof(string));
+
+
+        var lastModifiedParameter = lastModified.HasValue ?
+            new ObjectParameter("LastModified", lastModified) :
+            new ObjectParameter("LastModified", typeof(System.DateTimeOffset));
+
+
+        var userLastModifiedParameter = userLastModified.HasValue ?
+            new ObjectParameter("UserLastModified", userLastModified) :
+            new ObjectParameter("UserLastModified", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Author_Save", idParameter, firstNameParameter, lastNameParameter, birthDateParameter, birthPlaceParameter, deathDateParameter, deathPlaceParameter, descriptionParameter, urlParameter, lastModifiedParameter, userLastModifiedParameter);
     }
 
 }
