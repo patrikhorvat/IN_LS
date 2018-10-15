@@ -34,7 +34,13 @@ namespace InfoNovitas.LoginSample.Repositories.Authors
                     item.LastName, 
                     item.DateCreated, 
                     item.UserCreated?.Id, 
-                    item.BirthDate).SingleOrDefault().GetValueOrDefault();
+                    item.BirthDate,
+                    item.BirthPlace,
+                    item.DeathDate,
+                    item.DeathPlace,
+                    item.Description,
+                    item.Url
+                   ).SingleOrDefault().GetValueOrDefault();
             }
         }
 

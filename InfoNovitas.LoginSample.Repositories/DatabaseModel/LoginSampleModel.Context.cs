@@ -111,7 +111,7 @@ public partial class IdentityExDbEntities : DbContext
     }
 
 
-    public virtual ObjectResult<Nullable<int>> Author_Insert(string firstName, string lastName, Nullable<System.DateTimeOffset> dateCreated, Nullable<int> userCreated, Nullable<System.DateTime> birthDate)
+    public virtual ObjectResult<Nullable<int>> Author_Insert(string firstName, string lastName, Nullable<System.DateTimeOffset> dateCreated, Nullable<int> userCreated, Nullable<System.DateTime> birthDate, string birthPlace, Nullable<System.DateTime> deathDate, string deathPlace, string description, string url)
     {
 
         var firstNameParameter = firstName != null ?
@@ -139,7 +139,32 @@ public partial class IdentityExDbEntities : DbContext
             new ObjectParameter("BirthDate", typeof(System.DateTime));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Author_Insert", firstNameParameter, lastNameParameter, dateCreatedParameter, userCreatedParameter, birthDateParameter);
+        var birthPlaceParameter = birthPlace != null ?
+            new ObjectParameter("BirthPlace", birthPlace) :
+            new ObjectParameter("BirthPlace", typeof(string));
+
+
+        var deathDateParameter = deathDate.HasValue ?
+            new ObjectParameter("DeathDate", deathDate) :
+            new ObjectParameter("DeathDate", typeof(System.DateTime));
+
+
+        var deathPlaceParameter = deathPlace != null ?
+            new ObjectParameter("DeathPlace", deathPlace) :
+            new ObjectParameter("DeathPlace", typeof(string));
+
+
+        var descriptionParameter = description != null ?
+            new ObjectParameter("Description", description) :
+            new ObjectParameter("Description", typeof(string));
+
+
+        var urlParameter = url != null ?
+            new ObjectParameter("Url", url) :
+            new ObjectParameter("Url", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("Author_Insert", firstNameParameter, lastNameParameter, dateCreatedParameter, userCreatedParameter, birthDateParameter, birthPlaceParameter, deathDateParameter, deathPlaceParameter, descriptionParameter, urlParameter);
     }
 
 }

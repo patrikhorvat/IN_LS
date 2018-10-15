@@ -29,6 +29,11 @@
           <Parameter Name="DateCreated" Type="datetimeoffset" Mode="In" />
           <Parameter Name="UserCreated" Type="int" Mode="In" />
           <Parameter Name="BirthDate" Type="datetime" Mode="In" />
+          <Parameter Name="BirthPlace" Type="varchar" Mode="In" />
+          <Parameter Name="DeathDate" Type="datetime" Mode="In" />
+          <Parameter Name="DeathPlace" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Url" Type="varchar(max)" Mode="In" />
         </Function>
         <Function Name="Author_Save" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Author.Save">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -77,6 +82,11 @@
             <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
             <Parameter Name="UserCreated" Mode="In" Type="Int32" />
             <Parameter Name="BirthDate" Mode="In" Type="DateTime" />
+            <Parameter Name="BirthPlace" Mode="In" Type="String" />
+            <Parameter Name="DeathDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DeathPlace" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="Url" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Author_Get_Result">
