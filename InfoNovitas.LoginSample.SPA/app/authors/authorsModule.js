@@ -61,6 +61,10 @@
     .controller('updateAuthorCtrl', function ($scope, authorsSvc, $state, $stateParams) {
         authorsSvc.getAuthor($stateParams.id).then(function (result) {
             $scope.author = result.data;
+
+            $scope.author.birthDate = new Date($scope.author.birthDate);
+            $scope.author.deathDate = new Date($scope.author.deathDate);
+         
         })
 
         $scope.updateAuthor = function () {

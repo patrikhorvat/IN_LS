@@ -23,23 +23,22 @@
     </div>
     <div class="form-group" ng-class="{'has-error':newAuthorForm.deathDate.$invalid && newAuthorForm.deathDate.$dirty}">
         <label>Datum smrti:</label>
-        <input class="form-control" ng-model="author.deathDate" name="deathDate" type="date" required />
-        <p class="help-block" ng-show="newAuthorForm.birthDate.$invalid && newAuthorForm.deathDate.$dirty">Datum smrti je obavezan.</p>
-    </div>
+        <input class="form-control" ng-model="author.deathDate" name="deathDate" type="date"  />
+        
     <div class="form-group" ng-class="{'has-error':newAuthorForm.deathPlace.$invalid && newAuthorForm.deathPlace.$dirty}">
         <label>Mjesto smrti:</label>
-        <input class="form-control" ng-model="author.deathPlace" name="deathPlace" required />
-        <p class="help-block" ng-show="newAuthorForm.deathPlace.$invalid && newAuthorForm.deathPlace.$dirty">Mjesto smrti je obavezan.</p>
+        <input class="form-control" ng-model="author.deathPlace" name="deathPlace"  />
+       
     </div>
     <div class="form-group" ng-class="{'has-error':newAuthorForm.description.$invalid && newAuthorForm.description.$dirty}">
         <label>Opis:</label>
-        <input class="form-control" ng-model="author.description" name="description" required />
-        <p class="help-block" ng-show="newAuthorForm.description.$invalid && newAuthorForm.description.$dirty">Opis je obavezan.</p>
+        <input class="form-control" ng-model="author.description" name="description" />
+       
     </div>
     <div class="form-group" ng-class="{'has-error':newAuthorForm.url.$invalid && newAuthorForm.url.$dirty}">
         <label>Url:</label>
-        <input class="form-control" ng-model="author.url" name="url" required />
-        <p class="help-block" ng-show="newAuthorForm.url.$invalid && newAuthorForm.url.$dirty">Url je obavezan.</p>
+        <input class="form-control" ng-model="author.url" name="url"  />
+       
     </div>
     <button type="submit" class="btn btn-primary" ng-disabled="newAuthorForm.$invalid">Spremi</button>
 </form>
