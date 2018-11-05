@@ -17,6 +17,88 @@
         }
     })
     .controller('authorsOverviewCtrl', function ($scope, authorsSvc, $state) {
+
+        $scope.mainGridOptions = {
+            dataSource: {
+                transport: {
+                    read: function (e) {
+                        return authorsSvc.getAuthors().success(function (result) {
+                            e.success(result.authors);
+                        });
+                    }
+                },
+                pageSize: 5,
+                serverPaging: true,
+                serverSorting: true
+            },
+            dataBound: function () {
+                var grid = this;
+                grid.tbody.find("tr").dblclick(function (e) {
+                    var dataItem = grid.dataItem(this);
+                    $scope.profile(dataItem.id);
+                });
+            },
+            pageSize: 5,
+            scrollable: true,
+            sortable: true,
+            pageable: true,
+            columns: [
+                {
+                    field: "id",
+                    title: "ID",
+                    template: "{{dataItem.id}}",
+                    width: "56px"
+                },
+                {
+                    field: "firstName",
+                    title: "Ime",
+                    template: "{{dataItem.firstName}}",
+                    width: "110px"
+                },
+                {
+                    field: "lastName",
+                    title: "Prezime",
+                    template: "{{dataItem.lastName}}",
+                    width: "110px"
+                },
+                {
+                    field: "birthDate",
+                    title: "Datum rođenja",
+                    template: "{{dataItem.birthDate|date:'dd.MM.yyyy.'}}",
+                    width: "140px"
+                },
+                {
+                    field: "birthPlace",
+                    title: "Mjesto rođenja",
+                    template: "{{dataItem.birthPlace}}",
+                    width: "140px",
+                    filterable: {
+                        cell: {
+                            operator: "contains",
+                            suggestionOperator: "contains"
+                        }
+                    }
+                },
+                {
+                    field: "deathDate",
+                    title: "Datum smrti",
+                    template: "{{dataItem.deathDate|date:'dd.MM.yyyy.'}}",
+                    width: "110px"
+                },
+                {
+                    field: "deathPlace",
+                    title: "Mjesto smrti",
+                    template: "{{dataItem.deathPlace}}",
+                    width: "110px"
+                },
+                {
+                    title: "",
+                    width: "250px",
+                    template: ' <button type="button" class="btn btn-primary" ng-click="profile(dataItem.id)">Profil</button> <button type="button" class="btn btn-default" ng-click="edit(dataItem.id)">Uredi</button><button type="button" class="btn btn-default ml5" style="margin-left: 5px;" ng-click="delete(dataItem.id)">Obriši</button>'
+                }
+            ]
+        };
+
         authorsSvc.getAuthors().then(function (result) {
             $scope.authors = result.data.authors;
         }, function () { });

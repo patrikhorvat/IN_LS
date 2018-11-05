@@ -13,17 +13,21 @@
     </div>
     <div class="form-group" ng-class="{'has-error':newAuthorForm.birthDate.$invalid && newAuthorForm.birthDate.$dirty}">
         <label>Datum rođenja:</label>
-        <input class="form-control" ng-model="author.birthDate" name="birthDate" type="date" required />
+        <p>
+            <input kendo-date-picker k-ng-model="author.birthDate" name="birthDate" ng-required />
+        </p>
         <p class="help-block" ng-show="newAuthorForm.birthDate.$invalid && newAuthorForm.birthDate.$dirty">Datum rođenja je obavezan.</p>
     </div>
     <div class="form-group" ng-class="{'has-error':newAuthorForm.birthPlace.$invalid && newAuthorForm.birthPlace.$dirty}">
         <label>Mjesto rođenja:</label>
-        <input class="form-control" ng-model="author.birthPlace" name="birthPlace" required />
+            <input class="form-control" ng-model="author.birthPlace" name="birthPlace" required />
         <p class="help-block" ng-show="newAuthorForm.birthPlace.$invalid && newAuthorForm.birthPlace.$dirty">Mjesto rođenja je obavezan.</p>
     </div>
     <div class="form-group" ng-class="{'has-error':newAuthorForm.deathDate.$invalid && newAuthorForm.deathDate.$dirty}">
         <label>Datum smrti:</label>
-        <input class="form-control" ng-model="author.deathDate" name="deathDate" type="date"  />
+        <p>
+            <input kendo-date-picker ng-model="author.deathDate" name="deathDate" type="date" />
+        </p>
         
     <div class="form-group" ng-class="{'has-error':newAuthorForm.deathPlace.$invalid && newAuthorForm.deathPlace.$dirty}">
         <label>Mjesto smrti:</label>

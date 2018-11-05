@@ -1,4 +1,10 @@
-﻿var loginApp = angular.module('LoginApp', ['common', 'LocalStorageModule', 'oc.lazyLoad','ui.router']);
+﻿var loginApp = angular.module('LoginApp', [
+    'common',
+    'LocalStorageModule',
+    'oc.lazyLoad',
+    'ui.router',
+    'kendo.directives'
+]);
 
 loginApp.run([
     'authService', '$http', '$window', '$q', '$rootScope', function (authService, $http, $window, $q, $rootScope) {

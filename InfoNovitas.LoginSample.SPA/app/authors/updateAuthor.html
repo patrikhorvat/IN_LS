@@ -13,7 +13,9 @@
     </div>
     <div class="form-group" ng-class="{'has-error':updateAuthorForm.birthDate.$invalid && updateAuthorForm.birthDate.$dirty}">
         <label>Datum rođenja:</label>
-        <input class="form-control" ng-model="author.birthDate" name="birthDate" type="date" required />
+        <p>
+            <input kendo-date-picker k-ng-model="author.birthDate" name="birthDate" ng-required />
+        </p>
         <p class="help-block" ng-show="updateAuthorForm.birthDate.$invalid && updateAuthorForm.birthDate.$dirty">Datum rođenja je obavezan.</p>
     </div>
     <div class="form-group" ng-class="{'has-error':updateAuthorForm.birthPlace.$invalid && updateAuthorForm.birthPlace.$dirty}">
@@ -23,8 +25,9 @@
     </div>
     <div class="form-group" ng-class="{'has-error':updateAuthorForm.deathDate.$invalid && updateAuthorForm.deathDate.$dirty}">
         <label>Datum smrti:</label>
-        <input class="form-control" ng-model="author.deathDate" name="deathDate" type="date"  />
-       
+        <p>
+            <input kendo-date-picker k-ng-model="author.deathDate" name="deathDate" type="date" />
+        </p>
     </div>
     <div class="form-group" ng-class="{'has-error':updateAuthorForm.deathPlace.$invalid && updateAuthorForm.deathPlace.$dirty}">
         <label>Mjesto smrti:</label>
