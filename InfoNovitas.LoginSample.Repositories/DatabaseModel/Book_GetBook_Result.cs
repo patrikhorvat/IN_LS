@@ -11,23 +11,19 @@ namespace InfoNovitas.LoginSample.Repositories.DatabaseModel
 {
     using System;
     
-    public partial class Author_Get_Result
+    public partial class Book_GetBook_Result
     {
         public int Id { get; set; }
-        public bool Active { get; set; }
         public System.DateTimeOffset DateCreated { get; set; }
         public Nullable<int> UserCreated { get; set; }
         public string UserCreatedFullName { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string ShortContent { get; set; }
+        public Nullable<int> GenreId { get; set; }
+        public string GenreName { get; set; }
         public Nullable<System.DateTimeOffset> LastModified { get; set; }
         public Nullable<int> UserLastModified { get; set; }
         public string UserLastModifiedFullName { get; set; }
-        public Nullable<System.DateTime> BirthDate { get; set; }
-        public string BirthPlace { get; set; }
-        public Nullable<System.DateTime> DeathDate { get; set; }
-        public string DeathPlace { get; set; }
-        public string Description { get; set; }
-        public string Url { get; set; }
     }
 }

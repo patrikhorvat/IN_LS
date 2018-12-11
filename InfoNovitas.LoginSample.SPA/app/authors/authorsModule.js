@@ -15,6 +15,7 @@
         this.updateAuthor = function (id, author) {
             return $http.put(serviceBase + "api/authors/" + id, author);
         }
+    
     })
     .controller('authorsOverviewCtrl', function ($scope, authorsSvc, $state) {
 
@@ -140,6 +141,11 @@
             console.log("Author", $scope.author);
         })
     })
+
+
+
+
+
     .controller('updateAuthorCtrl', function ($scope, authorsSvc, $state, $stateParams) {
         authorsSvc.getAuthor($stateParams.id).then(function (result) {
             $scope.author = result.data;
@@ -154,4 +160,8 @@
                 $state.go("authorsOverview");
             });
         }
-    });
+    })
+
+
+
+    ;

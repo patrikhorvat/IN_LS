@@ -49,10 +49,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authors\AuthorRepository.cs" />
+    <Compile Include="Books\BookRepository.cs" />
     <Compile Include="DatabaseModel\Author_GetAll_Result.cs">
       <DependentUpon>LoginSampleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseModel\Author_Get_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Book_Authors_GetAll_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Book_GetAllBooks_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Book_GetBook_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Genre_GetAllGenres_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Genre_GetGenre_Result.cs">
       <DependentUpon>LoginSampleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseModel\LoginSampleModel.Context.cs">
@@ -73,8 +89,11 @@
     <Compile Include="DatabaseModel\UserInfo.cs">
       <DependentUpon>LoginSampleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Genres\GenreRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Mapping\AuthorsMapper.cs" />
+    <Compile Include="Mapping\BookMapper.cs" />
+    <Compile Include="Mapping\GenreMapper.cs" />
     <Compile Include="Mapping\UserInfoMapper.cs" />
     <Compile Include="Users\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

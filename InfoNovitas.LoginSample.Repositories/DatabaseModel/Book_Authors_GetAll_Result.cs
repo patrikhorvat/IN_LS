@@ -10,13 +10,12 @@
 namespace InfoNovitas.LoginSample.Repositories.DatabaseModel
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class UserInfo
+    public partial class Book_Authors_GetAll_Result
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Email { get; set; }
+        public string AuthorFullName { get; set; }
     }
 }

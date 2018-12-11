@@ -138,7 +138,83 @@ loginApp.config([
                  }
 
              }
-         });
+            })
+
+            .state('newBook', {
+                url: "/book/new",
+                controller: "newBookCtrl",
+                templateUrl: "app/books/newBook.html",
+                cache: false,
+                resolve: {
+                    loginRequired: loginRequired,
+                    books: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: "books",
+                            files: [
+                                "app/books/booksModule.js"
+                            ]
+                        });
+                    }
+
+                }
+            })
+
+            .state('newGenre', {
+                url: "/genre/new",
+                controller: "newGenreCtrl",
+                templateUrl: "app/genres/newGenre.html",
+                cache: false,
+                resolve: {
+                    loginRequired: loginRequired,
+                    genres: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: "genres",
+                            files: [
+                                "app/genres/genresModule.js"
+                            ]
+                        });
+                    }
+
+                }
+            })
+
+            .state('pregledBooks', {
+                url: "/books",
+                controller: "booksOverviewCtrl",
+                templateUrl: "app/books/pregledBooks.html",
+                resolve: {
+                    loginRequired: loginRequired,
+                    books: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: "books",
+                            files: [
+                                "app/books/booksModule.js"
+                            ]
+                        });
+                    }
+
+                }
+            })
+
+            .state('pregledGenres', {
+                url: "/genres",
+                controller: "genresOverviewCtrl",
+                templateUrl: "app/genres/pregledGenres.html",
+                resolve: {
+                    loginRequired: loginRequired,
+                    genres: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: "genres",
+                            files: [
+                                "app/genres/genresModule.js"
+                            ]
+                        });
+                    }
+
+                }
+            })
+
+            ;
         
 
         $locationProvider.html5Mode(true);

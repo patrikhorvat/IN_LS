@@ -48,6 +48,63 @@
           <Parameter Name="LastModified" Type="datetimeoffset" Mode="In" />
           <Parameter Name="UserLastModified" Type="int" Mode="In" />
         </Function>
+        <Function Name="Book_Authors_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Book.Authors.GetAll">
+          <Parameter Name="BookId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Book_DeleteBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Book.DeleteBook">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
+        </Function>
+        <Function Name="Book_GetAllBooks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Book.GetAllBooks" />
+        <Function Name="Book_GetBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Book.GetBook">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Book_InsertBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Book.InsertBook">
+          <Parameter Name="DateCreated" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ShortContent" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Genre" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="date" Mode="In" />
+          <Parameter Name="Author" Type="varchar" Mode="In" />
+          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
+        </Function>
+        <Function Name="Book_SaveBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Book.SaveBook">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="DateCreated" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ShortContent" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Genre" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="date" Mode="In" />
+          <Parameter Name="Author" Type="varchar" Mode="In" />
+          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
+        </Function>
+        <Function Name="Genre_DeleteGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.DeleteGenre">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
+        </Function>
+        <Function Name="Genre_GetAllGenres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.GetAllGenres" />
+        <Function Name="Genre_GetGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.GetGenre">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Genre_InsertGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.InsertGenre">
+          <Parameter Name="DateCreated" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="DatePicked" Type="datetimeoffset" Mode="In" />
+        </Function>
+        <Function Name="Genre_SaveGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.SaveGenre">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="DateCreated" Type="date" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="DatePicked" Type="datetimeoffset" Mode="In" />
+        </Function>
         <EntityContainer Name="IdentityExDbModelStoreContainer">
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -72,7 +129,7 @@
             <Parameter Name="UserLastModified" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Author_Get" ReturnType="Collection(IdentityExDbModel.Author_Get_Result)">
-          <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Author_GetAll" ReturnType="Collection(IdentityExDbModel.Author_GetAll_Result)" />
           <FunctionImport Name="Author_Insert" ReturnType="Collection(Int32)">
@@ -99,6 +156,63 @@
             <Parameter Name="Url" Mode="In" Type="String" />
             <Parameter Name="LastModified" Mode="In" Type="DateTimeOffset" />
             <Parameter Name="UserLastModified" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Book_Authors_GetAll" ReturnType="Collection(IdentityExDbModel.Book_Authors_GetAll_Result)">
+            <Parameter Name="BookId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Book_DeleteBook">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
+          </FunctionImport>
+          <FunctionImport Name="Book_GetAllBooks" ReturnType="Collection(IdentityExDbModel.Book_GetAllBooks_Result)" />
+          <FunctionImport Name="Book_GetBook" ReturnType="Collection(IdentityExDbModel.Book_GetBook_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Book_InsertBook" ReturnType="Collection(Int32)">
+            <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="ShortContent" Mode="In" Type="String" />
+            <Parameter Name="Genre" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="DateTime" />
+            <Parameter Name="Author" Mode="In" Type="String" />
+            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
+          </FunctionImport>
+          <FunctionImport Name="Book_SaveBook" ReturnType="Collection(Int32)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="ShortContent" Mode="In" Type="String" />
+            <Parameter Name="Genre" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="DateTime" />
+            <Parameter Name="Author" Mode="In" Type="String" />
+            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
+          </FunctionImport>
+          <FunctionImport Name="Genre_DeleteGenre">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
+          </FunctionImport>
+          <FunctionImport Name="Genre_GetAllGenres" ReturnType="Collection(IdentityExDbModel.Genre_GetAllGenres_Result)" />
+          <FunctionImport Name="Genre_GetGenre" ReturnType="Collection(IdentityExDbModel.Genre_GetGenre_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Genre_InsertGenre" ReturnType="Collection(Int32)">
+            <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="DatePicked" Mode="In" Type="DateTimeOffset" />
+          </FunctionImport>
+          <FunctionImport Name="Genre_SaveGenre">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="DateCreated" Mode="In" Type="DateTime" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="DatePicked" Mode="In" Type="DateTimeOffset" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Author_Get_Result">
@@ -136,6 +250,56 @@
           <Property Type="String" Name="DeathPlace" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="String" Name="Url" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Book_Authors_GetAll_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AuthorFullName" Nullable="false" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="Book_GetAllBooks_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="DateCreated" Nullable="false" />
+          <Property Type="Int32" Name="UserCreated" Nullable="true" />
+          <Property Type="String" Name="UserCreatedFullName" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="ShortContent" Nullable="true" />
+          <Property Type="Int32" Name="GenreId" Nullable="true" />
+          <Property Type="String" Name="GenreName" Nullable="true" MaxLength="255" />
+          <Property Type="DateTimeOffset" Name="LastModified" Nullable="true" />
+          <Property Type="Int32" Name="UserLastModified" Nullable="true" />
+          <Property Type="String" Name="UserLastModifiedFullName" Nullable="true" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="Book_GetBook_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="DateCreated" Nullable="false" />
+          <Property Type="Int32" Name="UserCreated" Nullable="true" />
+          <Property Type="String" Name="UserCreatedFullName" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="2000" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="String" Name="ShortContent" Nullable="true" />
+          <Property Type="Int32" Name="GenreId" Nullable="true" />
+          <Property Type="String" Name="GenreName" Nullable="true" MaxLength="255" />
+          <Property Type="DateTimeOffset" Name="LastModified" Nullable="true" />
+          <Property Type="Int32" Name="UserLastModified" Nullable="true" />
+          <Property Type="String" Name="UserLastModifiedFullName" Nullable="true" MaxLength="101" />
+        </ComplexType>
+        <ComplexType Name="Genre_GetAllGenres_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="DateCreated" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
+          <Property Type="DateTimeOffset" Name="DateModified" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Genre_GetGenre_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="DateTimeOffset" Name="DateCreated" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
+          <Property Type="DateTimeOffset" Name="DateModified" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -200,6 +364,82 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Author_Insert" FunctionName="IdentityExDbModel.Store.Author_Insert" />
           <FunctionImportMapping FunctionImportName="Author_Save" FunctionName="IdentityExDbModel.Store.Author_Save" />
+          <FunctionImportMapping FunctionImportName="Book_Authors_GetAll" FunctionName="IdentityExDbModel.Store.Book_Authors_GetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Book_Authors_GetAll_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="AuthorFullName" ColumnName="AuthorFullName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Book_DeleteBook" FunctionName="IdentityExDbModel.Store.Book_DeleteBook" />
+          <FunctionImportMapping FunctionImportName="Book_GetAllBooks" FunctionName="IdentityExDbModel.Store.Book_GetAllBooks">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Book_GetAllBooks_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="UserCreated" ColumnName="UserCreated" />
+                <ScalarProperty Name="UserCreatedFullName" ColumnName="UserCreatedFullName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShortContent" ColumnName="ShortContent" />
+                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+                <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="UserLastModified" ColumnName="UserLastModified" />
+                <ScalarProperty Name="UserLastModifiedFullName" ColumnName="UserLastModifiedFullName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Book_GetBook" FunctionName="IdentityExDbModel.Store.Book_GetBook">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Book_GetBook_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="UserCreated" ColumnName="UserCreated" />
+                <ScalarProperty Name="UserCreatedFullName" ColumnName="UserCreatedFullName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShortContent" ColumnName="ShortContent" />
+                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+                <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="UserLastModified" ColumnName="UserLastModified" />
+                <ScalarProperty Name="UserLastModifiedFullName" ColumnName="UserLastModifiedFullName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Book_InsertBook" FunctionName="IdentityExDbModel.Store.Book_InsertBook" />
+          <FunctionImportMapping FunctionImportName="Book_SaveBook" FunctionName="IdentityExDbModel.Store.Book_SaveBook" />
+          <FunctionImportMapping FunctionImportName="Genre_DeleteGenre" FunctionName="IdentityExDbModel.Store.Genre_DeleteGenre" />
+          <FunctionImportMapping FunctionImportName="Genre_GetAllGenres" FunctionName="IdentityExDbModel.Store.Genre_GetAllGenres">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Genre_GetAllGenres_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Genre_GetGenre" FunctionName="IdentityExDbModel.Store.Genre_GetGenre">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Genre_GetGenre_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Genre_InsertGenre" FunctionName="IdentityExDbModel.Store.Genre_InsertGenre" />
+          <FunctionImportMapping FunctionImportName="Genre_SaveGenre" FunctionName="IdentityExDbModel.Store.Genre_SaveGenre" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

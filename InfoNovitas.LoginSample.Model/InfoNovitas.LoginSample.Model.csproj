@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="Authors\Author.cs" />
     <Compile Include="Authors\IAuthorRepository.cs" />
+    <Compile Include="Books\Book.cs" />
+    <Compile Include="Books\IBookRepository.cs" />
+    <Compile Include="Genres\Genre.cs" />
+    <Compile Include="Genres\IGenreRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\IUserRepository.cs" />

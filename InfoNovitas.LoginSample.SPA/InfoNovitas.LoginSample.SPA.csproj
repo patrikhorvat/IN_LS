@@ -122,6 +122,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\books\booksModule.js" />
+    <Content Include="app\genres\genresModule.js" />
+    <Content Include="app\books\newBook.html" />
+    <Content Include="app\genres\newGenre.html" />
+    <Content Include="app\books\pregledBooks.html" />
+    <Content Include="app\genres\pregledGenres.html" />
     <Content Include="app\authors\profile.html" />
     <Content Include="app\common\commonModule.js" />
     <Content Include="app\common\services\authServices.js" />
@@ -1001,7 +1007,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59691</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

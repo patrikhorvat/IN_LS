@@ -45,12 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBookService.cs" />
     <Compile Include="CommonProfile.cs" />
     <Compile Include="IAuthorService.cs" />
+    <Compile Include="IGenreService.cs" />
     <Compile Include="Impl\AuthorService.cs" />
+    <Compile Include="Impl\BookService.cs" />
+    <Compile Include="Impl\GenreService.cs" />
     <Compile Include="Impl\UserService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Mapping\AuthorMapper.cs" />
+    <Compile Include="Mapping\BooksMapper.cs" />
+    <Compile Include="Mapping\GenresMapper.cs" />
     <Compile Include="Mapping\UserMapper.cs" />
     <Compile Include="Messaging\Authors\DeleteAuthorRequest.cs" />
     <Compile Include="Messaging\Authors\DeleteAuthorResponse.cs" />
@@ -60,12 +66,20 @@
     <Compile Include="Messaging\Authors\GetAuthorResponse.cs" />
     <Compile Include="Messaging\Authors\SaveAuthorRequest.cs" />
     <Compile Include="Messaging\Authors\SaveAuthorResponse.cs" />
+    <Compile Include="Messaging\Books\GetBooksRequest.cs" />
+    <Compile Include="Messaging\Books\GetBooksResponse.cs" />
+    <Compile Include="Messaging\Books\SaveBookRequest.cs" />
+    <Compile Include="Messaging\Books\SaveBookResponse.cs" />
+    <Compile Include="Messaging\Genres\GetGenresRequest.cs" />
+    <Compile Include="Messaging\Genres\GetGenresResponse.cs" />
     <Compile Include="Messaging\Views\Authors\Author.cs" />
     <Compile Include="Messaging\GenericErrorMessageFactory.cs" />
     <Compile Include="Messaging\LoginSampleRequestBase.cs" />
     <Compile Include="Messaging\LoginSampleResponseBase.cs" />
     <Compile Include="Messaging\Users\GetUserInfoRequest.cs" />
     <Compile Include="Messaging\Users\GetUserInfoResponse.cs" />
+    <Compile Include="Messaging\Views\Books\Book.cs" />
+    <Compile Include="Messaging\Views\Genres\Genre.cs" />
     <Compile Include="Messaging\Views\Users\UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
