@@ -72,6 +72,8 @@
     <Compile Include="Messaging\Books\SaveBookResponse.cs" />
     <Compile Include="Messaging\Genres\GetGenresRequest.cs" />
     <Compile Include="Messaging\Genres\GetGenresResponse.cs" />
+    <Compile Include="Messaging\Genres\SaveGenreRequest.cs" />
+    <Compile Include="Messaging\Genres\SaveGenreResponse.cs" />
     <Compile Include="Messaging\Views\Authors\Author.cs" />
     <Compile Include="Messaging\GenericErrorMessageFactory.cs" />
     <Compile Include="Messaging\LoginSampleRequestBase.cs" />

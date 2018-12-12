@@ -74,6 +74,10 @@
 
     .controller('newGenreCtrl', function ($scope, genresSvc, userInfoService, $state) {
 
+        $scope.genre = {
+            id: 0
+
+        };
 
         $scope.addNewGenre = function () {
             genresSvc.createGenre($scope.genre).then(function () {
