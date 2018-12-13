@@ -1,38 +1,59 @@
 ﻿<h1 class="page-header">Unos nove knjige:</h1>
 
-<form role="form" ng-submit="addNewAuthor()" name="newAuthorForm" id="newAuthorForm" novalidate>
-    <div class="form-group" ng-class="{'has-error':newAuthorForm.firstName.$invalid && newAuthorForm.firstName.$dirty}">
+<form role="form" ng-submit="addNewBook()" name="newBookForm" id="newBookForm" novalidate>
+    <div class="form-group" ng-class="{'has-error':newBookForm.name.$invalid && newBookForm.name.$dirty}">
         <label>Naziv:</label>
-        <input class="form-control" ng-model="author.firstName" name="firstName" required />
-        <p class="help-block" ng-show="newAuthorForm.firstName.$invalid && newAuthorForm.firstName.$dirty">Ime je obavezno.</p>
+        <input class="form-control" ng-model="book.name" name="name" required />
+        <p class="help-block" ng-show="newBookForm.name.$invalid && newBookForm.name.$dirty">Nayiv je obavezan.</p>
     </div>
-    <div class="form-group" ng-class="{'has-error':newAuthorForm.lastName.$invalid && newAuthorForm.lastName.$dirty}">
+    <div class="form-group" ng-class="{'has-error':newBookForm.description.$invalid && newBookForm.description.$dirty}">
         <label>Opis:</label>
-        <input class="form-control" ng-model="author.lastName" name="lastName" required />
-        <p class="help-block" ng-show="newAuthorForm.lastName.$invalid && newAuthorForm.lastName.$dirty">Ime je obavezno.</p>
-    </div>
+        <input class="form-control" ng-model="book.description" name="description" required />
 
-    <div class="form-group" ng-class="{'has-error':newAuthorForm.birthPlace.$invalid && newAuthorForm.birthPlace.$dirty}">
+    </div>
+    <div class="form-group" ng-class="{'has-error':newBookForm.shortContent.$invalid && newBookForm.shortContent.$dirty}">
         <label>Saržaj:</label>
-        <input class="form-control" ng-model="author.birthPlace" name="birthPlace" required />
-        <p class="help-block" ng-show="newAuthorForm.birthPlace.$invalid && newAuthorForm.birthPlace.$dirty">Mjesto rođenja je obavezan.</p>
+        <input class="form-control" ng-model="book.shortContent" name="shortContent" required />
+
     </div>
-    <div class="form-group" ng-class="{'has-error':newAuthorForm.deathDate.$invalid && newAuthorForm.deathDate.$dirty}">
-        <label>Godina:</label>
+    <div class="form-group" ng-class="{'has-error':newBookForm.year.$invalid && newBookForm.year.$dirty}">
+        <label>Godina izdavanja knjige:</label>
         <p>
-            <input kendo-date-picker ng-model="author.deathDate" name="deathDate" type="date" />
+            <input kendo-date-picker ng-model="book.year" name="year" type="date" />
         </p>
+        <div class="form-group" ng-class="{'has-error':newBookForm.genre.$invalid && newBookForm.genre.$dirty}">
+            <label>Žanr knjige:</label>
+            <p>
+                <h4>Odaberi žanr:</h4>
+                <select kendo-multi-select k-options="selectOptions" k-ng-model="selectedIds"></select>
+            <p ng-show="selectedIds.length" style="padding-top: 1em;">Selected: {{ selectedIds }}</p>
+            </p>
+        </div>
+    </div>
 
-    
-        <div class="form-group" ng-class="{'has-error':newAuthorForm.description.$invalid && newAuthorForm.description.$dirty}">
-            <label>Opis:</label>
-            <input class="form-control" ng-model="author.description" name="description" />
+    <div class="form-group" ng-class="{'has-error':newBookForm.author.$invalid && newBookForm.author.$dirty}">
+        <label>Autor/i knjige:</label>
+
+        <select kendo-multi-select id="multi-select"
+                k-options="vm.selectOptions"
+                k-on-change="vm.onChange()"
+                k-ng-model="vm.selectedItems"></select>
+
+    </div>
+
+    <div class="form-group" ng-class="{'has-error':newBookForm.author.$invalid && newBookForm.author.$dirty}">
+        <label>Proba:</label>
+
+        <div ng-controller="newBookCtrl">
+            <select id='my' kendo-multi-select k-options="selectOptions" k-ng-model="selectedIds" k-rebind="selectedIds"></select>
+            <p ng-show="selectedIds.length">Selected: {{ selectedIds }}</p>
+            <button ng-click="addSelectedId()">Add selected id</button>
+            <input ng-model="enteredId" />
+        </div>
 
         </div>
-        <div class="form-group" ng-class="{'has-error':newAuthorForm.url.$invalid && newAuthorForm.url.$dirty}">
-            <label>Žanr:</label>
-            <input class="form-control" ng-model="author.url" name="url" />
 
-        </div>
-        <button type="submit" class="btn btn-primary" >Spremi</button>
+   
+
+    <button type="submit" class="btn btn-primary" ng-disabled="newBookForm.$invalid">Spremi</button>
 </form>

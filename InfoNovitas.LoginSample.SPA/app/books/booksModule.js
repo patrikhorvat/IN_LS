@@ -68,6 +68,27 @@
     .controller('newBookCtrl', function ($scope, booksSvc, userInfoService, $state) {
 
 
+        $scope.selectOptions = {
+            placeholder: "Select products...",
+            dataTextField: "ProductName",
+            dataValueField: "ProductID",
+            autoBind: false,
+            dataSource: {
+                type: "odata",
+                serverFiltering: true,
+                transport: {
+                    read: {
+                        url: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                    }
+                }
+            }
+        };
+        $scope.selectedIds = [4, 7];
+        $scope.addSelectedId = function () {
+            $scope.selectedIds.push(parseInt($scope.enteredId));
+            console.log($scope.selectedIds);
+        };
+
         //$scope.addNewBook = function () {
         //    booksSvc.createBook($scope.book).then(function () {
                 
