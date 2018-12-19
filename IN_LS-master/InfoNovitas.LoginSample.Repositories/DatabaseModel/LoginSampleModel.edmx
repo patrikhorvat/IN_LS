@@ -92,18 +92,16 @@
         </Function>
         <Function Name="Genre_InsertGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.InsertGenre">
           <Parameter Name="DateCreated" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="UserCreated" Type="int" Mode="In" />
           <Parameter Name="Name" Type="varchar" Mode="In" />
           <Parameter Name="Description" Type="varchar(max)" Mode="In" />
-          <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
-          <Parameter Name="DatePicked" Type="datetimeoffset" Mode="In" />
         </Function>
         <Function Name="Genre_SaveGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Genre.SaveGenre">
           <Parameter Name="Id" Type="int" Mode="In" />
-          <Parameter Name="DateCreated" Type="date" Mode="In" />
           <Parameter Name="Name" Type="varchar" Mode="In" />
           <Parameter Name="Description" Type="varchar(max)" Mode="In" />
           <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
-          <Parameter Name="DatePicked" Type="datetimeoffset" Mode="In" />
+          <Parameter Name="UserLastModified" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="IdentityExDbModelStoreContainer">
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
@@ -201,18 +199,16 @@
           </FunctionImport>
           <FunctionImport Name="Genre_InsertGenre" ReturnType="Collection(Int32)">
             <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="UserCreated" Mode="In" Type="Int32" />
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Description" Mode="In" Type="String" />
-            <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
-            <Parameter Name="DatePicked" Mode="In" Type="DateTimeOffset" />
           </FunctionImport>
           <FunctionImport Name="Genre_SaveGenre">
             <Parameter Name="Id" Mode="In" Type="Int32" />
-            <Parameter Name="DateCreated" Mode="In" Type="DateTime" />
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="Description" Mode="In" Type="String" />
             <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
-            <Parameter Name="DatePicked" Mode="In" Type="DateTimeOffset" />
+            <Parameter Name="UserLastModified" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="Author_Get_Result">
@@ -289,9 +285,13 @@
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="Boolean" Name="Active" Nullable="false" />
           <Property Type="DateTimeOffset" Name="DateCreated" Nullable="false" />
+          <Property Type="Int32" Name="UserCreated" Nullable="true" />
+          <Property Type="String" Name="UserCreatedFullName" Nullable="false" MaxLength="101" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
           <Property Type="DateTimeOffset" Name="DateModified" Nullable="true" />
+          <Property Type="Int32" Name="UserLastModified" Nullable="true" />
+          <Property Type="String" Name="UserLastModifiedFullName" Nullable="true" MaxLength="101" />
         </ComplexType>
         <ComplexType Name="Genre_GetGenre_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -420,9 +420,13 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="UserCreated" ColumnName="UserCreated" />
+                <ScalarProperty Name="UserCreatedFullName" ColumnName="UserCreatedFullName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="DateModified" ColumnName="DateModified" />
+                <ScalarProperty Name="UserLastModified" ColumnName="UserLastModified" />
+                <ScalarProperty Name="UserLastModifiedFullName" ColumnName="UserLastModifiedFullName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

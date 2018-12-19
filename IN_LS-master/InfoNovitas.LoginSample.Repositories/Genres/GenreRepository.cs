@@ -19,10 +19,21 @@ namespace InfoNovitas.LoginSample.Repositories.Genres
             }
         }
 
+
+
         #region Not implemented
         public int Add(Genre item)
         {
-            throw new NotImplementedException();
+            using (var context = new IdentityExDbEntities())
+            {
+                return context.Genre_InsertGenre(
+
+                    item.DateCreated,
+                    item.UserCreated?.Id,
+                    item.Name,
+                    item.Description
+                   ).SingleOrDefault().GetValueOrDefault();
+            }
         }
 
         public bool Delete(Genre item)

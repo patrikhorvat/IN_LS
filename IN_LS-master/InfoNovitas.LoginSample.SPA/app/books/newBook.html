@@ -32,17 +32,7 @@
     </div>
 
     <div class="form-group" ng-class="{'has-error':newBookForm.author.$invalid && newBookForm.author.$dirty}">
-        <label>Autor/i knjige:</label>
-
-        <select kendo-multi-select id="multi-select"
-                k-options="vm.selectOptions"
-                k-on-change="vm.onChange()"
-                k-ng-model="vm.selectedItems"></select>
-
-    </div>
-
-    <div class="form-group" ng-class="{'has-error':newBookForm.author.$invalid && newBookForm.author.$dirty}">
-        <label>Proba:</label>
+        <label>Dodaj autore knjige:</label>
 
         <div ng-controller="newBookCtrl">
             <select id='my' kendo-multi-select k-options="selectOptions" k-ng-model="selectedIds" k-rebind="selectedIds"></select>

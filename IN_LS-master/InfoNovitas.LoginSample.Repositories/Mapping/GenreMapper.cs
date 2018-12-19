@@ -25,7 +25,7 @@ namespace InfoNovitas.LoginSample.Repositories.Mapping
                 },
                 Name = dbResult.Name,
                 Description = dbResult.Description,
-                LastModified = dbResult.LastModified,
+               // LastModified = dbResult.LastModified,
                 UserLastModified = new Model.Users.UserInfo()
                 {
                     Id = dbResult.UserLastModified.GetValueOrDefault(),
