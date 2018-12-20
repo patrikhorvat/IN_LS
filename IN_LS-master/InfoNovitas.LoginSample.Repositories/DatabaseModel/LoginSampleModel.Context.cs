@@ -449,6 +449,25 @@ public partial class IdentityExDbEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Genre_SaveGenre", idParameter, nameParameter, descriptionParameter, dateModifiedParameter, userLastModifiedParameter);
     }
 
+
+    public virtual ObjectResult<Subscriber_Get_Result> Subscriber_Get(Nullable<int> id)
+    {
+
+        var idParameter = id.HasValue ?
+            new ObjectParameter("Id", id) :
+            new ObjectParameter("Id", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Subscriber_Get_Result>("Subscriber_Get", idParameter);
+    }
+
+
+    public virtual ObjectResult<Subscriber_GetAll_Result> Subscriber_GetAll()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Subscriber_GetAll_Result>("Subscriber_GetAll");
+    }
+
 }
 
 }

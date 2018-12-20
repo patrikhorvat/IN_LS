@@ -152,10 +152,12 @@
     <Compile Include="Mapping\AuthorMapper.cs" />
     <Compile Include="Mapping\BooksMapper.cs" />
     <Compile Include="Mapping\GenresMapper.cs" />
+    <Compile Include="Mapping\SubscriberMapper.cs" />
     <Compile Include="Mapping\UserInfoMapper.cs" />
     <Compile Include="Models\Authors\AuthorViewModel.cs" />
     <Compile Include="Models\Books\BookViewModel.cs" />
     <Compile Include="Models\Genres\GenreViewModel.cs" />
+    <Compile Include="Models\Subscribers\SubscriberViewModel.cs" />
     <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />

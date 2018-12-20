@@ -86,6 +86,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoginSampleModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseModel\Subscriber_GetAll_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseModel\Subscriber_Get_Result.cs">
+      <DependentUpon>LoginSampleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseModel\UserInfo.cs">
       <DependentUpon>LoginSampleModel.tt</DependentUpon>
     </Compile>
@@ -94,7 +100,9 @@
     <Compile Include="Mapping\AuthorsMapper.cs" />
     <Compile Include="Mapping\BookMapper.cs" />
     <Compile Include="Mapping\GenreMapper.cs" />
+    <Compile Include="Mapping\SubscriberMapper.cs" />
     <Compile Include="Mapping\UserInfoMapper.cs" />
+    <Compile Include="Subscriber\SubscriberRepository.cs" />
     <Compile Include="Users\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

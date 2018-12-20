@@ -103,6 +103,10 @@
           <Parameter Name="DateModified" Type="datetimeoffset" Mode="In" />
           <Parameter Name="UserLastModified" Type="int" Mode="In" />
         </Function>
+        <Function Name="Subscriber_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Subscriber.Get">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Subscriber_GetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Subscriber.GetAll" />
         <EntityContainer Name="IdentityExDbModelStoreContainer">
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -127,7 +131,7 @@
             <Parameter Name="UserLastModified" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Author_Get" ReturnType="Collection(IdentityExDbModel.Author_Get_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Author_GetAll" ReturnType="Collection(IdentityExDbModel.Author_GetAll_Result)" />
           <FunctionImport Name="Author_Insert" ReturnType="Collection(Int32)">
@@ -156,7 +160,7 @@
             <Parameter Name="UserLastModified" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Book_Authors_GetAll" ReturnType="Collection(IdentityExDbModel.Book_Authors_GetAll_Result)">
-            <Parameter Name="BookId" Mode="In" Type="Int32" />
+          <Parameter Name="BookId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Book_DeleteBook">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -164,7 +168,7 @@
           </FunctionImport>
           <FunctionImport Name="Book_GetAllBooks" ReturnType="Collection(IdentityExDbModel.Book_GetAllBooks_Result)" />
           <FunctionImport Name="Book_GetBook" ReturnType="Collection(IdentityExDbModel.Book_GetBook_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Book_InsertBook" ReturnType="Collection(Int32)">
             <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
@@ -195,7 +199,7 @@
           </FunctionImport>
           <FunctionImport Name="Genre_GetAllGenres" ReturnType="Collection(IdentityExDbModel.Genre_GetAllGenres_Result)" />
           <FunctionImport Name="Genre_GetGenre" ReturnType="Collection(IdentityExDbModel.Genre_GetGenre_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="Genre_InsertGenre" ReturnType="Collection(Int32)">
             <Parameter Name="DateCreated" Mode="In" Type="DateTimeOffset" />
@@ -210,6 +214,10 @@
             <Parameter Name="DateModified" Mode="In" Type="DateTimeOffset" />
             <Parameter Name="UserLastModified" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="Subscriber_Get" ReturnType="Collection(IdentityExDbModel.Subscriber_Get_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Subscriber_GetAll" ReturnType="Collection(IdentityExDbModel.Subscriber_GetAll_Result)" />
         </EntityContainer>
         <ComplexType Name="Author_Get_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -300,6 +308,20 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="Description" Nullable="true" MaxLength="2000" />
           <Property Type="DateTimeOffset" Name="DateModified" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Subscriber_Get_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="String" Name="FName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BooksReserved" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Subscriber_GetAll_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="String" Name="FName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="BooksReserved" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -444,6 +466,28 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="Genre_InsertGenre" FunctionName="IdentityExDbModel.Store.Genre_InsertGenre" />
           <FunctionImportMapping FunctionImportName="Genre_SaveGenre" FunctionName="IdentityExDbModel.Store.Genre_SaveGenre" />
+          <FunctionImportMapping FunctionImportName="Subscriber_Get" FunctionName="IdentityExDbModel.Store.Subscriber_Get">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Subscriber_Get_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="BooksReserved" ColumnName="BooksReserved" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Subscriber_GetAll" FunctionName="IdentityExDbModel.Store.Subscriber_GetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IdentityExDbModel.Subscriber_GetAll_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="BooksReserved" ColumnName="BooksReserved" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -214,6 +214,24 @@ loginApp.config([
                 }
             })
 
+            .state('subscribersOverwiev', {
+                url: "/subscribers",
+                controller: "subscribersOverviewCtrl",
+                templateUrl: "app/subscribers/subscribersOverwiev.html",
+                resolve: {
+                    loginRequired: loginRequired,
+                    subscribers: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            name: "subscribers",
+                            files: [
+                                "app/subscribers/subscribersModule.js"
+                            ]
+                        });
+                    }
+
+                }
+            })
+
             ;
         
 

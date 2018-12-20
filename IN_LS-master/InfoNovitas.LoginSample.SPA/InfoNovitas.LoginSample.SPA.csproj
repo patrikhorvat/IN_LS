@@ -142,6 +142,8 @@
     <Content Include="app\authors\authorsModule.js" />
     <Content Include="app\authors\authorsOverview.html" />
     <Content Include="app\authors\updateAuthor.html" />
+    <Content Include="app\subscribers\subscribersModule.js" />
+    <Content Include="app\subscribers\subscribersOverwiev.html" />
     <Content Include="assets\plugins\font-awesome\.gitignore" />
     <Content Include="assets\plugins\font-awesome\css\font-awesome.css" />
     <Content Include="assets\plugins\font-awesome\css\font-awesome.min.css" />

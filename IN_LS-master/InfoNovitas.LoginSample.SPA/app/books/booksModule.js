@@ -69,19 +69,24 @@
 
 
         $scope.selectOptions = {
-            placeholder: "Select products...",
-            dataTextField: "ProductName",
-            dataValueField: "ProductID",
+            placeholder: "Select authors...",
+            dataTextField: "Naziv",
+            dataValueField: "AutorId",
             autoBind: false,
+
             dataSource: {
-                type: "odata",
-                serverFiltering: true,
                 transport: {
-                    read: {
-                        url: "http://demos.telerik.com/kendo-ui/service/Northwind.svc/Products",
+                    read: function (e) {
+                        return authorsSvc.getAuthors().success(function (result) {
+                            e.success(result.authors);
+                        });
                     }
-                }
-            }
+                },
+                pageSize: 5,
+                serverPaging: true,
+                serverSorting: true
+            },
+
         };
         $scope.selectedIds = [4, 7];
         $scope.addSelectedId = function () {

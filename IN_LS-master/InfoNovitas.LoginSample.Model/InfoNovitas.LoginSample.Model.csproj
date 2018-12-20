@@ -49,6 +49,8 @@
     <Compile Include="Genres\IGenreRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subscriber\ISubscriberRepository.cs" />
+    <Compile Include="Subscriber\Subscriber.cs" />
     <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\UserInfo.cs" />
   </ItemGroup>

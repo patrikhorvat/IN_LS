@@ -37,7 +37,6 @@
         <div ng-controller="newBookCtrl">
             <select id='my' kendo-multi-select k-options="selectOptions" k-ng-model="selectedIds" k-rebind="selectedIds"></select>
             <p ng-show="selectedIds.length">Selected: {{ selectedIds }}</p>
-            <button ng-click="addSelectedId()">Add selected id</button>
             <input ng-model="enteredId" />
         </div>
 
