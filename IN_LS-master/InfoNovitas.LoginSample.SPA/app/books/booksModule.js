@@ -3,6 +3,9 @@
    
          this.getBooks = function () {
             return $http.get(serviceBase + "api/books");
+         }
+        this.getAuthors = function () {
+            return $http.get(serviceBase + "api/authors");
         }
     })
     .controller('booksOverviewCtrl', function ($scope, booksSvc, $state) {
